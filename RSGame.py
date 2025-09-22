@@ -108,12 +108,12 @@ def show_color_offline():
     choice = st.selectbox("Διάλεξε μέρος", list(pairs.keys()))
 
     if "before" in pairs[choice] and "after" in pairs[choice]:
-        mode = st.radio("Εμφάνιση:", ["RGB/True color", "NIRRG/False color"], horizontal=True)
+        mode = st.radio("Εμφάνιση:", ["True color", "False color"], horizontal=True)
 
-        if mode == "RGB/True color":
-            st.image(pairs[choice]["before"], caption="RGB/True color", use_container_width=True)
+        if mode == "True color":
+            st.image(pairs[choice]["before"], caption="True color", use_container_width=True)
         else:
-            st.image(pairs[choice]["after"], caption="NIRRG/False color", use_container_width=True)
+            st.image(pairs[choice]["after"], caption="False color", use_container_width=True)
     else:
         st.error(f"Missing before/after pair for {choice}")
 #till here offline
@@ -141,8 +141,8 @@ def show_color_online():
         image_comparison(
             img1=pairs[choice]["before"],
             img2=pairs[choice]["after"],
-            label1="RGB/True color",
-            label2="NIRRG/False color",
+            label1="True color",
+            label2="False color",
             width=950,
         )
     else:
@@ -334,3 +334,4 @@ elif menu == "Πριν και μετά":
     show_before_after()
 elif menu == "Ντετέκτιβ χρωμάτων":
     show_color()
+
