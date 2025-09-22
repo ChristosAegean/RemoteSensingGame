@@ -1,6 +1,2 @@
 streamlit
 streamlit-image-comparison
-Path
-random
-base64
-uuid
