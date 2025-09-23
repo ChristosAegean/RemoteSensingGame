@@ -1,4 +1,4 @@
-# app.py
+
 import streamlit as st
 from pathlib import Path
 import random
@@ -15,7 +15,6 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="collapsed"
 )
-#st.image(r"C:\Users\Chris\Documents\mednight\Game\images\icons\group_logo.png", width=300)
 
 
 # -------------------
@@ -40,7 +39,7 @@ def show_guess_the_place():
     st.header("Μάντεψε το μέρος")
     images = list(FOLDERS["guess"].glob("*.*"))
     if not images:
-        st.warning("👉 Put some images in `images/guess_the_place/`")
+        st.warning("Put some images in `images/guess_the_place/`")
         return
 
     if "current_guess" not in st.session_state:
@@ -72,7 +71,7 @@ def show_before_after_offline():
             pairs.setdefault(key, {})["after"] = str(f)
 
     if not pairs:
-        st.warning("👉 Put pairs of images in `images/before_after/` (e.g. city_before.jpg, city_after.jpg)")
+        st.warning("Put pairs of images in `images/before_after/` (e.g. city_before.jpg, city_after.jpg)")
         return
 
     choice = st.selectbox("Διάλεξε μέρος", list(pairs.keys()))
@@ -102,7 +101,7 @@ def show_color_offline():
             pairs.setdefault(key, {})["after"] = str(f)
 
     if not pairs:
-        st.warning("👉 Put pairs of images in `images/before_after/` (e.g. city_before.jpg, city_after.jpg)")
+        st.warning("Put pairs of images in `images/before_after/` (e.g. city_before.jpg, city_after.jpg)")
         return
 
     choice = st.selectbox("Διάλεξε μέρος", list(pairs.keys()))
@@ -132,7 +131,7 @@ def show_color_online():
             pairs.setdefault(key, {})["after"] = str(f)
 
     if not pairs:
-        st.warning("👉 Put pairs of images in `images/before_after/` (e.g. city_before.jpg, city_after.jpg)")
+        st.warning("Put pairs of images in `images/before_after/` (e.g. city_before.jpg, city_after.jpg)")
         return
 
     choice = st.selectbox("Διάλεξε μέρος", list(pairs.keys()))
@@ -162,7 +161,7 @@ def show_before_after_online():
             pairs.setdefault(key, {})["after"] = str(f)
 
     if not pairs:
-        st.warning("👉 Put pairs of images in `images/before_after/` (e.g. city_before.jpg, city_after.jpg)")
+        st.warning("Put pairs of images in `images/before_after/` (e.g. city_before.jpg, city_after.jpg)")
         return
 
     choice = st.selectbox("Διάλεξε μέρος", list(pairs.keys()))
@@ -188,7 +187,7 @@ def show_puzzle():
 
     images = list(FOLDERS["puzzle"].glob("*.*"))
     if not images:
-        st.warning("👉 Put one image in `images/puzzle/` (e.g. earth.jpg)")
+        st.warning("Put one image in `images/puzzle/` (e.g. earth.jpg)")
         return
 
     img_path = images[0]
@@ -305,14 +304,14 @@ def show_before_after():
     if has_internet():
         show_before_after_online()
     else:
-        #st.info("⚠️ Χωρίς σύνδεση στο διαδίκτυο – χρήση offline έκδοσης.")
+        #st.info("Χωρίς σύνδεση στο διαδίκτυο – χρήση offline έκδοσης.")
         show_before_after_offline()
 
 def show_color():
     if has_internet():
         show_color_online()
     else:
-        #st.info("⚠️ Χωρίς σύνδεση στο διαδίκτυο – χρήση offline έκδοσης.")
+        #st.info("Χωρίς σύνδεση στο διαδίκτυο – χρήση offline έκδοσης.")
         show_color_offline()
 # -------------------
 # MAIN MENU
@@ -334,4 +333,5 @@ elif menu == "Πριν και μετά":
     show_before_after()
 elif menu == "Ντετέκτιβ χρωμάτων":
     show_color()
+
 
